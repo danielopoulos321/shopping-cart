@@ -1,5 +1,14 @@
+import { Outlet } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
+
 function App() {
-  return <h1>Fresh Project</h1>;
+  const cartItems = [0, 0, 0];
+  return (
+    <>
+      <Navbar cartItems={cartItems} />
+      <Outlet />
+    </>
+  );
 }
 
 export default App;
