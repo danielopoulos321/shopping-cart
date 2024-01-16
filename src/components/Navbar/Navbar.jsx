@@ -10,7 +10,7 @@ export function Navbar({ cartItems }) {
         <h1>Company</h1>
         <Link to="/">Home</Link>
         <Link to="shop">Shop</Link>
-        <h2>{cartLength}</h2>
+        <h2>Items: {cartLength}</h2>
       </div>
     </>
   );
