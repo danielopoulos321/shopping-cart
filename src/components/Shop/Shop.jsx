@@ -1,8 +1,6 @@
-import { useOutletContext } from "react-router-dom";
-
 /* eslint-disable react/prop-types */
-export default function Shop() {
-  const [cartItems, setCartItems] = useOutletContext();
+import { Navbar } from "../Navbar/Navbar";
+export default function Shop({ cartItems, setCartItems }) {
   const addItem = () => {
     console.log(cartItems);
     let newItemArr = [...cartItems];
@@ -10,9 +8,10 @@ export default function Shop() {
     setCartItems(newItemArr);
   };
   return (
-    <div>
+    <>
+      <Navbar cartItems={cartItems} />
       <h2>Shop</h2>
       <button onClick={addItem}>Add Item</button>
-    </div>
+    </>
   );
 }
