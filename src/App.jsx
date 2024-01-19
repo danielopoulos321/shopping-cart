@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
 import styles from "./App.module.css";
 import Shop from "./components/Shop/Shop.jsx";
+import Cart from "./components/Cart/Cart.jsx";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,7 @@ function App() {
       .then((response) => setProducts(response))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
-  });
+  }, []);
 
   if (error) return <p>A network error was encountered</p>;
   if (loading) return <p>Loading...</p>;
@@ -42,6 +43,10 @@ function App() {
           setCartItems={setCartItems}
         />
       ),
+    },
+    {
+      path: "cart",
+      element: <Cart cartItems={cartItems} setCartItems={setCartItems} />,
     },
   ]);
 
