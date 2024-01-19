@@ -3,10 +3,9 @@ import { Navbar } from "../Navbar/Navbar";
 import Product from "../Product/Product";
 import styles from "./Shop.module.css";
 export default function Shop({ products, cartItems, setCartItems }) {
-  const addItem = () => {
-    console.log(cartItems);
+  const addItem = (selectedProduct) => {
     let newItemArr = [...cartItems];
-    newItemArr.push(0);
+    newItemArr.push(selectedProduct);
     setCartItems(newItemArr);
   };
   return (
@@ -15,7 +14,11 @@ export default function Shop({ products, cartItems, setCartItems }) {
       <h2>Shop</h2>
       <main className={styles.productContainer}>
         {products.map((product) => (
-          <Product key={product.id} product={product} addItem={addItem} />
+          <Product
+            key={product.id}
+            product={product}
+            addItem={() => addItem(product)}
+          />
         ))}
       </main>
     </>
