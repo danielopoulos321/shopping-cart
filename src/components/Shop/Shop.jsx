@@ -5,9 +5,19 @@ import styles from "./Shop.module.css";
 export default function Shop({ products, cartItems, setCartItems }) {
   const addItem = (selectedProduct) => {
     let newItemArr = [...cartItems];
-    newItemArr.push(selectedProduct);
+    const existingItem = newItemArr.find(
+      (item) => item.id === selectedProduct.id
+    );
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      const newItem = { ...selectedProduct, quantity: 1 };
+      newItemArr.push(newItem);
+    }
     setCartItems(newItemArr);
   };
+
   return (
     <>
       <Navbar cartItems={cartItems} />
