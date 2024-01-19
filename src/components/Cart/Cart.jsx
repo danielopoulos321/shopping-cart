@@ -4,12 +4,13 @@ import styles from "./Cart.module.css";
 export default function Cart({ cartItems }) {
   const priceTotal = (cartItems) => {
     if (cartItems.length == 0) return "$0.00";
-    let total = cartItems.reduce((accumulator, currentValue) => {
-      const price = parseFloat(currentValue.price);
-      return accumulator + (isNaN(price) ? 0 : price);
+    let total = cartItems.reduce((acc, curVal) => {
+      const price = parseFloat(curVal.price);
+      return acc + (isNaN(price) ? 0 : price * curVal.quantity);
     }, 0);
     return `$${total.toFixed(2)}`;
   };
+
   return (
     <>
       <Navbar cartItems={cartItems} />
@@ -18,6 +19,7 @@ export default function Cart({ cartItems }) {
         {cartItems.map((item) => (
           <div key={item.id}>
             <h1>{item.title}</h1>
+            <h2>Quantity: {item.quantity}</h2>
           </div>
         ))}
         <div className={styles.checkout}>
