@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Navbar } from "../Navbar/Navbar";
-export default function Shop({ cartItems, setCartItems }) {
+import Product from "../Product/Product";
+import styles from "./Shop.module.css";
+export default function Shop({ products, cartItems, setCartItems }) {
   const addItem = () => {
     console.log(cartItems);
     let newItemArr = [...cartItems];
@@ -11,7 +13,11 @@ export default function Shop({ cartItems, setCartItems }) {
     <>
       <Navbar cartItems={cartItems} />
       <h2>Shop</h2>
-      <button onClick={addItem}>Add Item</button>
+      <main className={styles.productContainer}>
+        {products.map((product) => (
+          <Product key={product.id} product={product} addItem={addItem} />
+        ))}
+      </main>
     </>
   );
 }
