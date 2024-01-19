@@ -35,7 +35,13 @@ function App() {
     },
     {
       path: "shop",
-      element: <Shop cartItems={cartItems} setCartItems={setCartItems} />,
+      element: (
+        <Shop
+          products={products}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+        />
+      ),
     },
   ]);
 
