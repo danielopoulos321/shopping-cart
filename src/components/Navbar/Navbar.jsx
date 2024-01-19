@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 export function Navbar({ cartItems }) {
-  const cartLength = cartItems.length; // Change to account for multiples of an item with reduce
+  const cartLength = cartItems.reduce((acc, curVal) => {
+    return acc + curVal.quantity;
+  }, 0);
   return (
     <header className={styles.navContainer}>
       <h1>Company</h1>
