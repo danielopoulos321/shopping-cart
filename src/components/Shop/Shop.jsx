@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Navbar } from "../Navbar/Navbar";
 import Product from "../Product/Product";
+import Footer from "../Footer/Footer";
 import styles from "./Shop.module.css";
 export default function Shop({ products, cartItems, setCartItems }) {
   const addItem = (selectedProduct) => {
@@ -21,7 +22,6 @@ export default function Shop({ products, cartItems, setCartItems }) {
   return (
     <>
       <Navbar cartItems={cartItems} />
-      <h2>Shop</h2>
       <main className={styles.productContainer}>
         {products.map((product) => (
           <Product
@@ -31,6 +31,7 @@ export default function Shop({ products, cartItems, setCartItems }) {
           />
         ))}
       </main>
+      <Footer />
     </>
   );
 }
