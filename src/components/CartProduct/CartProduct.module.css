@@ -15,7 +15,15 @@
 
 .left > img {
   margin-right: 1em;
-  max-width: 50px;
+  max-height: 50px;
+  width: 40px;
+}
+
+.left > h3 {
+  width: 450px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .right {
@@ -26,20 +34,20 @@
   height: 100%;
 }
 
+.price {
+  width: 4em;
+  text-align: end;
+}
+
 .right > * {
   margin: 0 1em;
 }
 
-.right > h3 {
-  text-align: end;
-  font-size: 95%;
-}
-
 .right > button {
+  margin: 0;
   cursor: pointer;
-  padding: 0.7em;
   border: 2px solid #49108b;
-  border-radius: 0.5em;
+  border-radius: 20px;
   background-color: #49108b;
   color: #ffffff;
 }

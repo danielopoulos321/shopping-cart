@@ -15,7 +15,7 @@ export default function CartProduct({ product, removeItem, addItem }) {
         <h3>{product.title}</h3>
       </div>
       <div className={styles.right}>
-        <p>{price}</p>
+        <p className={styles.price}>{price}</p>
         <button onClick={removeItem}>-</button>
         <p>{product.quantity}</p>
         <button onClick={addItem}>+</button>
