@@ -28,20 +28,39 @@ export default function Cart({ cartItems, setCartItems }) {
     setCartItems(newCart);
   };
 
+  const addItem = (selectedProduct) => {
+    let newItemArr = [...cartItems];
+    const existingItem = newItemArr.find(
+      (item) => item.id === selectedProduct.id
+    );
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      const newItem = { ...selectedProduct, quantity: 1 };
+      newItemArr.push(newItem);
+    }
+    setCartItems(newItemArr);
+  };
+
   return (
     <div className={styles.container}>
       <div>
         <Navbar cartItems={cartItems} />
         <main>
-          <div className={styles.items}>
-            {cartItems.map((item) => (
-              <CartProduct
-                key={item.id}
-                product={item}
-                removeItem={() => removeItem(item)}
-              />
-            ))}
-          </div>
+          {cartItems.length == 0 ? (
+            <h2>Your cart is empty!</h2>
+          ) : (
+            <div className={styles.items}>
+              {cartItems.map((item) => (
+                <CartProduct
+                  key={item.id}
+                  product={item}
+                  removeItem={() => removeItem(item)}
+                  addItem={() => addItem(item)}
+                />
+              ))}
+            </div>
+          )}
           <div className={styles.checkout}>
             <h1>Your Total</h1>
             <hr />
