@@ -11,9 +11,10 @@ h6 {
 
 body {
   margin: 0;
+  min-height: 100vh;
 }
 
 :root {
-  background-color: rgb(234, 255, 254);
+  background-color: #f3f8ff;
   font-family: "Lato", sans-serif;
 }
