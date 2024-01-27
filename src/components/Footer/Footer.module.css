@@ -1,7 +1,7 @@
 footer {
   width: 100%;
-  background-color: black;
-  color: white;
+  background-color: #000000;
+  color: #ffffff;
   margin-top: 1em;
   display: flex;
   justify-content: center;
