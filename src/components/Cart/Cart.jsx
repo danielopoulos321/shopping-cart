@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Navbar } from "../Navbar/Navbar";
 import styles from "./Cart.module.css";
-export default function Cart({ cartItems }) {
+import Footer from "../Footer/Footer";
+import CartProduct from "../CartProduct/CartProduct";
+export default function Cart({ cartItems, setCartItems }) {
   const priceTotal = (cartItems) => {
     if (cartItems.length == 0) return "$0.00";
     let total = cartItems.reduce((acc, curVal) => {
@@ -11,21 +13,45 @@ export default function Cart({ cartItems }) {
     return `$${total.toFixed(2)}`;
   };
 
+  const removeItem = (selectedProduct) => {
+    let updatedCart = cartItems.map((item) => {
+      if (item.id == selectedProduct.id) {
+        if (item.quantity > 1) {
+          return { ...item, quantity: item.quantity - 1 };
+        } else {
+          return null;
+        }
+      }
+      return item;
+    });
+    const newCart = updatedCart.filter((item) => item !== null);
+    setCartItems(newCart);
+  };
+
   return (
-    <>
-      <Navbar cartItems={cartItems} />
-      <h1>Cart</h1>
-      <main>
-        {cartItems.map((item) => (
-          <div key={item.id}>
-            <h1>{item.title}</h1>
-            <h2>Quantity: {item.quantity}</h2>
+    <div className={styles.container}>
+      <div>
+        <Navbar cartItems={cartItems} />
+        <main>
+          <div className={styles.items}>
+            {cartItems.map((item) => (
+              <CartProduct
+                key={item.id}
+                product={item}
+                removeItem={() => removeItem(item)}
+              />
+            ))}
           </div>
-        ))}
-        <div className={styles.checkout}>
-          <h2>Price: {priceTotal(cartItems)}</h2>
-        </div>
-      </main>
-    </>
+          <div className={styles.checkout}>
+            <h1>Your Total</h1>
+            <hr />
+            <p>Subtotal: {priceTotal(cartItems)}</p>
+            <p>Tax: </p>
+            <p>Total: </p>
+          </div>
+        </main>
+      </div>
+      <Footer />
+    </div>
   );
 }
