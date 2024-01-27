@@ -5,12 +5,20 @@ import Footer from "../Footer/Footer";
 import CartProduct from "../CartProduct/CartProduct";
 export default function Cart({ cartItems, setCartItems }) {
   const priceTotal = (cartItems) => {
-    if (cartItems.length == 0) return "$0.00";
-    let total = cartItems.reduce((acc, curVal) => {
+    if (cartItems.length == 0)
+      return { subtotal: "$0.00", tax: "$0.00", totalAfterTax: "$0.00" };
+    let subtotal = cartItems.reduce((acc, curVal) => {
       const price = parseFloat(curVal.price);
       return acc + (isNaN(price) ? 0 : price * curVal.quantity);
     }, 0);
-    return `$${total.toFixed(2)}`;
+
+    const tax = subtotal * 0.15;
+    const totalAfterTax = subtotal + tax;
+    return {
+      subtotal: `$${subtotal.toFixed(2)}`,
+      tax: `$${tax.toFixed(2)}`,
+      totalAfterTax: `$${totalAfterTax.toFixed(2)}`,
+    };
   };
 
   const removeItem = (selectedProduct) => {
@@ -64,9 +72,18 @@ export default function Cart({ cartItems, setCartItems }) {
           <div className={styles.checkout}>
             <h1>Your Total</h1>
             <hr />
-            <p>Subtotal: {priceTotal(cartItems)}</p>
-            <p>Tax: </p>
-            <p>Total: </p>
+            <div className={styles.price}>
+              <p>Subtotal:</p>
+              <p>{priceTotal(cartItems).subtotal}</p>
+            </div>
+            <div className={styles.price}>
+              <p>Tax:</p>
+              <p>{priceTotal(cartItems).tax}</p>
+            </div>
+            <div className={styles.price}>
+              <p>Total:</p>
+              <p>{priceTotal(cartItems).totalAfterTax}</p>
+            </div>
           </div>
         </main>
       </div>
