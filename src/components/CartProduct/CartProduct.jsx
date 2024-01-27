@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styles from "./CartProduct.module.css";
-export default function CartProduct({ product, removeItem }) {
+export default function CartProduct({ product, removeItem, addItem }) {
   const price = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -16,8 +16,9 @@ export default function CartProduct({ product, removeItem }) {
       </div>
       <div className={styles.right}>
         <p>{price}</p>
-        <p></p>
-        <button onClick={removeItem}>DELETE</button>
+        <button onClick={removeItem}>-</button>
+        <p>{product.quantity}</p>
+        <button onClick={addItem}>+</button>
       </div>
     </div>
   );
