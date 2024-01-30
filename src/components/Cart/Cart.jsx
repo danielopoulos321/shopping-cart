@@ -69,21 +69,24 @@ export default function Cart({ cartItems, setCartItems }) {
               ))}
             </div>
           )}
-          <div className={styles.checkout}>
-            <h1>Your Total</h1>
-            <hr />
-            <div className={styles.price}>
-              <p>Subtotal:</p>
-              <p>{priceTotal(cartItems).subtotal}</p>
+          <div>
+            <div className={styles.totals}>
+              <h1>Your Total</h1>
+              <hr />
+              <div className={styles.price}>
+                <p>Subtotal:</p>
+                <p>{priceTotal(cartItems).subtotal}</p>
+              </div>
+              <div className={styles.price}>
+                <p>Tax:</p>
+                <p>{priceTotal(cartItems).tax}</p>
+              </div>
+              <div className={styles.price}>
+                <p>Total:</p>
+                <p>{priceTotal(cartItems).totalAfterTax}</p>
+              </div>
             </div>
-            <div className={styles.price}>
-              <p>Tax:</p>
-              <p>{priceTotal(cartItems).tax}</p>
-            </div>
-            <div className={styles.price}>
-              <p>Total:</p>
-              <p>{priceTotal(cartItems).totalAfterTax}</p>
-            </div>
+            <div className={styles.checkout}>Checkout</div>
           </div>
         </main>
       </div>
