@@ -50,6 +50,10 @@ export default function Cart({ cartItems, setCartItems }) {
     setCartItems(newItemArr);
   };
 
+  const checkout = () => {
+    setCartItems([]);
+  };
+
   return (
     <div className={styles.container}>
       <div>
@@ -86,7 +90,9 @@ export default function Cart({ cartItems, setCartItems }) {
                 <p>{priceTotal(cartItems).totalAfterTax}</p>
               </div>
             </div>
-            <div className={styles.checkout}>Checkout</div>
+            <div onClick={() => checkout()} className={styles.checkout}>
+              Checkout
+            </div>
           </div>
         </main>
       </div>
