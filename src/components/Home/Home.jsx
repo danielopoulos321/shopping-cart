@@ -31,7 +31,7 @@ export default function Home({ cartItems }) {
             </div>
           </div>
           <img
-            src="src/assets/tobias-van-schneider-gCeCpP15V1o-unsplash-2.jpg"
+            src="/src/assets/tobias-van-schneider-gCeCpP15V1o-unsplash-2.jpg"
             alt=""
           />
         </div>
