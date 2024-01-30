@@ -7,7 +7,6 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  margin-bottom: 1em;
   padding: 0.5em 1em;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
 }
@@ -19,4 +18,15 @@
   text-decoration: none;
   color: #f3f8ff;
   margin-left: 1em;
+}
+
+.links > *:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 575px) {
+  .cart {
+    font-size: 1.4em;
+  }
 }
