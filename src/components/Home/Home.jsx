@@ -3,7 +3,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import styles from "./Home.module.css";
-import Hero from "/Users/danielanestopoulos/repos/shopping-cart/src/assets/hero.jpg";
+import Hero from "/src/assets/hero.jpg";
 export default function Home({ cartItems }) {
   return (
     <div className={styles.container}>
