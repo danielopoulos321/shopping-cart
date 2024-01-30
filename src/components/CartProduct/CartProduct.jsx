@@ -16,9 +16,40 @@ export default function CartProduct({ product, removeItem, addItem }) {
       </div>
       <div className={styles.right}>
         <p className={styles.price}>{price}</p>
-        <button onClick={removeItem}>-</button>
+        <svg
+          onClick={removeItem}
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="feather feather-minus-circle"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
         <p>{product.quantity}</p>
-        <button onClick={addItem}>+</button>
+        <svg
+          onClick={addItem}
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="feather feather-plus-circle"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
       </div>
     </div>
   );

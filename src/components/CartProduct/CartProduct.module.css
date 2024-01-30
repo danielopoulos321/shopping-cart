@@ -3,7 +3,7 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0.25em 1em;
+  padding: 0.5em 1em;
   max-height: 200px;
   width: auto;
 }
@@ -43,16 +43,21 @@
   margin: 0 1em;
 }
 
-.right > button {
+.right > svg {
   margin: 0;
   cursor: pointer;
-  border: 2px solid #49108b;
-  border-radius: 20px;
-  background-color: #49108b;
-  color: #ffffff;
+  color: #49108b;
 }
 
-.right > button:hover {
-  color: #49108b;
-  background-color: #ffffff;
+.right > svg:hover {
+  color: white;
+  background-color: #49108b;
+  border-radius: 100%;
+}
+
+@media (max-width: 575px) {
+  .left > h3 {
+    font-size: 0.9em;
+    width: 250px;
+  }
 }
