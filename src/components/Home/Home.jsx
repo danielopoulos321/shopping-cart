@@ -3,6 +3,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import styles from "./Home.module.css";
+import Hero from "/Users/danielanestopoulos/repos/shopping-cart/src/assets/hero.jpg";
 export default function Home({ cartItems }) {
   return (
     <div className={styles.container}>
@@ -30,10 +31,7 @@ export default function Home({ cartItems }) {
               </div>
             </div>
           </div>
-          <img
-            src="/src/assets/tobias-van-schneider-gCeCpP15V1o-unsplash-2.jpg"
-            alt=""
-          />
+          <img src={Hero} alt="" />
         </div>
       </div>
       <Footer />
